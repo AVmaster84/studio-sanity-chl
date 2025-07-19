@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { productCategoryType } from "./productCategory";
+import { productCategoryType } from "./category";
 
 export const productType = defineType({
   name: 'product',
@@ -66,6 +66,12 @@ export const productType = defineType({
       title: 'Is Featured Product',
       type: 'boolean',
       initialValue: false,
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{type: 'category'}],    
     }),
   ],
 })
